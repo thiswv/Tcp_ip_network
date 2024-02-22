@@ -27,7 +27,9 @@
 - 1  
 
 > 问：接电话需要什么
+>
 > 答：电话机
+>
 > 有了电话机才能安装电话  socket创建
 
 ```c
@@ -39,7 +41,9 @@ int socket(int domain, int type, int protocol);
 - 2
 
 > 问：有了电话机之后需要什么
+>
 > 答：需要电话号码用来通信
+>
 > 如何创建电话号码  bind创建
 
 ```c
@@ -51,7 +55,9 @@ int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);
 - 3
 
 > 问：有了电话号码就能通信了吗
+>
 > 答：还需要电话线，只有接入链路，才能相互通信
+>
 > 电话线由  listen负责，一连接就转为可接听模式
 
 ```c
@@ -63,7 +69,9 @@ int listen(int sockfd, int backlog);
 - 4
   
 > 问：这样电话打进来就能接听吗
+>
 > 答: 不够，还需要拿起电话机，接听
+>
 > 接听由accept函数来完成
 
 ```c
@@ -159,7 +167,9 @@ ssize_t read(int fd, void *buf, size_t nbytes);
 ```
 
 > 成功时返回接受的字节数但遇到文件尾则返回0
+>
 > 失败时返回-1
+>
 > fd 文件描述符， buf 保存数据的缓冲地址值， nbytes 要接受数据的最大字节值
 
 ### 1.5 习题
@@ -167,6 +177,7 @@ ssize_t read(int fd, void *buf, size_t nbytes);
 1. 套接字在网络编程中的作用是什么？为何称它为套接字？  
 
   > 答：套接字是网络传输的软件设备。 在编程中“套接字”就是用来连接该网络的工具，本身就具有连接的意思。
+  >
   > 详细见书本第3页
 
 2. 在服务端创建套接字后，会依次调用listen函数和accept函数。请比较说明二者作用。
@@ -184,7 +195,9 @@ ssize_t read(int fd, void *buf, size_t nbytes);
 6. 底层文件I/O函数与ANSI标准定义的文件I/O函数之间有何区别？
   
   > 答：  
+  >
   > 底层文件I/O函数有对应的文件描述符，如open， read...函数
+  >
   > ANSI标准的文件I/O函数 fopen对应的是文件指针 FILE *
 
 7. 略  
