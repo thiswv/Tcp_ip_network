@@ -17,7 +17,16 @@ void error_handling(char *message)
 int main(int argc, char *argv[])
 {
   int serv_sock, clnt_sock;
+
   char message[BUF_SIZE];
+  //char *message;
+  /*
+    如果将第21行修改为 char *message;，
+    它将会定义一个字符指针，而不是字符数组。
+    这意味着在接收到数据之前，message 指针并没有指向任何有效的内存地址。
+    因此，在第53行的 read(clnt_sock, message, BUF_SIZE) 中，
+    message 指针指向的是未知的内存区域，这将导致未定义的行为。  
+  */
   int str_len, i;
 
   struct sockaddr_in serv_addr, clnt_addr;
